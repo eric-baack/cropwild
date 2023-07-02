@@ -1,6 +1,6 @@
 #shared_calc_crop.py
 # June 2022
-# Given 23391snps, outliers, 3 regions, how many expect shared across all, across 2?
+# Given 23391 snps, outliers, 3 regions, how many expect shared across all, across 2?
 OUTLIERS = [59, 148, 98]
 SITES = 23391
 SIMS = 20000
@@ -37,9 +37,6 @@ def main():
     s3list.sort()
     print("lower, upper95% CI share 3: ", s3list[int(SIMS*.025)], s3list[int(SIMS*.975)])
     print("lower, upper 95% CI share 2 upper", s2list[int(SIMS*.025)], s2list[int(SIMS*.975)])
-    pos3 = s3list.index(0)
-    print("Probability of 3", (1-pos3/SIMS)*2)
-    pos2 = s2list.index(1)
-    print("Probability of 2", (1-pos2/SIMS)*2)
+    
 
 main()
